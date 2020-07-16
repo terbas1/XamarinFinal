@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
+             x:Class="TodoREST.TodoListPage"
+             Title="---Personas---" >
+    <ContentPage.ToolbarItems>
+        <ToolbarItem Text="+" Clicked="OnAddItemClicked">
+            <ToolbarItem.IconImageSource>
+                <OnPlatform x:TypeArguments="ImageSource">
+                    <On Platform="Android, UWP" Value="plus.png" />
+                </OnPlatform>
+            </ToolbarItem.IconImageSource>
+        </ToolbarItem>
+    </ContentPage.ToolbarItems>
+    <ListView x:Name="listView" 
+              Margin="20" 
+              ItemSelected="OnItemSelected">
+        <ListView.ItemTemplate>
+            <DataTemplate>
+                <ViewCell>
+                    <StackLayout   VerticalOptions="StartAndExpand" Orientation="Vertical">
+                    
+                    <StackLayout  
+                                 HorizontalOptions="StartAndExpand"
+                                 Orientation="Horizontal">
+                        
+                        <Label Text="{Binding Nombre}" 
+                               VerticalTextAlignment="Center" TextColor="Black"/>
+                        <Label Text="{Binding Apellidos}" 
+                               VerticalTextAlignment="Center" TextColor="Black"/>
+    
+                        </StackLayout>
+                        <StackLayout Orientation="Horizontal">
+                            <Label Text="{Binding Sexo}" TextColor="Red" />
+                            <Label Text="{Binding Edad }"  TextColor="Black"/>
+                            <Label Text="años" TextColor="Black" />
+                        </StackLayout>
+                       
+                        
+                    </StackLayout>
+                </ViewCell>
+            </DataTemplate>
+        </ListView.ItemTemplate>
+    </ListView>
+</ContentPage>

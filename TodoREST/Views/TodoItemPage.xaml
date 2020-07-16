@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" 
+			 xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
+			 x:Class="TodoREST.TodoItemPage" 
+			 Title="Persona :) ">
+	<StackLayout Margin="20">
+        <Label Text="Nombre" TextColor="Black"/>
+        <Entry Text="{Binding Path=Nombre}" 
+               Placeholder="Nombre" />
+        <Label Text="Apellidos" TextColor="Black" />
+        <Entry Text="{Binding Path=Apellidos}" 
+               Placeholder="Apellidos" />
+        <Label Text="Género" TextColor="Black" />
+        <Picker x:Name="pickerTipo" Title="Genero" SelectedItem="{Binding Path=Sexo}"  >
+            <Picker.ItemsSource >
+                <x:Array Type="{x:Type x:String}">
+                    <x:String>Hombre</x:String>
+                    <x:String>Mujer</x:String>
+                </x:Array>
+            </Picker.ItemsSource>
+        </Picker>
+
+        <Label Text="Fecha Nacimiento " TextColor="Black"/>
+        <DatePicker  Date="{Binding Path=FechaNacimiento}"/>
+    
+		<Button Text="Save" 
+                Clicked="OnSaveButtonClicked" />
+		<Button Text="Delete"
+                Clicked="OnDeleteButtonClicked" />
+		<Button Text="Cancel" 
+                Clicked="OnCancelButtonClicked" />
+	</StackLayout>
+</ContentPage>
